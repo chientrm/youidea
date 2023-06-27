@@ -28,23 +28,3 @@
     <a href="register">Register</a>
   </div>
 </form>
-
-<style>
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 8pt;
-  }
-  form div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8pt;
-  }
-  input {
-    padding: 8pt;
-  }
-  button {
-    padding: 8pt;
-  }
-</style>

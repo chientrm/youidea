@@ -1,3 +1,26 @@
 .error {
   color: red;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16pt;
+}
+
+form label,
+div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16pt;
+}
+
+input,
+button {
+  padding: 8pt;
+}
+
+a {
+  text-decoration: none;
+}
