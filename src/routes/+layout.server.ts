@@ -7,5 +7,3 @@ export const load = (async ({ cookies }) => {
     user = await verify<User>(cookie);
   return { user };
 }) satisfies LayoutServerLoad;
-
-export const prerender = false;
