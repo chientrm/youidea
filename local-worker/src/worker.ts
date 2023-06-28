@@ -4,4 +4,4 @@ export interface Env {
   D1: D1Database;
 }
 
-export default createWorker<Env>();
+export default createWorker();
