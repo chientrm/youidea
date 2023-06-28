@@ -1,0 +1,8 @@
+name = "local-worker"
+main = "src/worker.ts"
+compatibility_date = "2023-06-28"
+
+[[d1_databases]]
+binding = "D1"
+database_name = "D1"
+database_id = "d1"
