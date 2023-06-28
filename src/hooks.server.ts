@@ -11,7 +11,7 @@ export const handle = (async ({ event, resolve }) => {
         'insert into User default values returning uid'
       ).first<{ uid: number }>('uid'),
       user = { type: 'anonymous', uid },
-      jwt = await sign(event.locals.user);
+      jwt = await sign(user);
     event.cookies.set(COOKIE_USER, jwt);
   }
   return await resolve(event);

@@ -19,7 +19,7 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "bcrypt": "^5.1.0",
-    "cf-workers-proxy": "file:../cf-workers-proxy",
+    "cf-workers-proxy": "^0.0.2",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte": "^2.30.0",
