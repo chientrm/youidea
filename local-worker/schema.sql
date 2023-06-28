@@ -1,2 +1,6 @@
-DROP TABLE IF EXISTS User;
-CREATE TABLE IF NOT EXISTS User (email TEXT PRIMARY KEY, passwordHash TEXT);
+drop table if exists User;
+create table if not exists User (
+    uid integer primary key autoincrement,
+    email text unique,
+    passwordHash text
+);

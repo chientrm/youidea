@@ -20,3 +20,20 @@ input,
 button {
   padding: 8pt;
 }
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16pt;
+}
+
+body {
+  padding: 16pt;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
