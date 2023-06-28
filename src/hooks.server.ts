@@ -4,7 +4,7 @@ import type { Handle } from '@sveltejs/kit';
 import { createD1 } from 'cf-workers-proxy';
 
 export const handle = (async ({ event, resolve }) => {
-  event.locals.D1 = event.platform?.env?.D1 ?? createD1({ name: 'D1' });
+  event.locals.D1 = event.platform?.env.D1 ?? createD1({ name: 'D1' });
   const cookie = event.cookies.get(COOKIE_USER);
   if (!cookie) {
     const { uid } = await event.locals.D1.prepare(

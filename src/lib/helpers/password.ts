@@ -1,7 +1,7 @@
-import bcrypt from 'bcrypt';
+import { compare, hash } from 'bcryptjs';
 
-const hashPassword = (password: string) => bcrypt.hash(password, 10),
+const hashPassword = (password: string) => hash(password, 10),
   validatePassword = (password: string, pashwordHash: string) =>
-    bcrypt.compare(password, pashwordHash);
+    compare(password, pashwordHash);
 
 export { hashPassword, validatePassword };

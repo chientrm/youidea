@@ -16,7 +16,7 @@ declare global {
     }
     // interface PageData {}
     interface Platform {
-      env?: {
+      env: {
         D1: D1Database;
       };
     }
