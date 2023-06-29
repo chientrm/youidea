@@ -8,12 +8,13 @@ export const handle = (async ({ event, resolve }) => {
   event.locals.D1 = event.platform?.env.D1 ?? createD1({ name: 'D1' });
   const cookie = event.cookies.get(COOKIE_USER);
   if (!building && !cookie) {
-    const { uid } = await event.locals.D1.prepare(
+    const dbUser = await event.locals.D1.prepare(
         'insert into User default values returning uid'
-      ).first<{ uid: number }>('uid'),
+      ).first<{ uid: number }>(),
+      { uid } = dbUser,
       user = { type: 'anonymous', uid },
       jwt = await sign(user);
-    console.log({ uid, user, jwt });
+    console.log({ dbUser, uid, user, jwt });
     event.cookies.set(COOKIE_USER, jwt);
   }
   return await resolve(event);
