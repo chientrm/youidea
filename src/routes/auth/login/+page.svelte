@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
-  import { base } from '$app/paths';
   import { page } from '$app/stores';
   import { empty } from '$lib/constants/empty';
+  import { path } from '$lib/helpers/path';
   import type { ActionData } from './$types';
   export let form: ActionData;
   const redirectTo = $page.url.searchParams.get('redirectTo') ?? '';
@@ -29,6 +29,6 @@
   <div>
     <button>Log in</button>
     <span>or</span>
-    <a href={`${base}/register?redirectUri=${redirectTo}`}>Register</a>
+    <a href={path(`register?redirectUri=${redirectTo}`)}>Register</a>
   </div>
 </form>

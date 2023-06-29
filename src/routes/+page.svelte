@@ -1,14 +1,14 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { base } from '$app/paths';
+  import { path } from '$lib/helpers/path';
   import type { PageData } from './$types';
 
   export let data: PageData;
   const newIdea = () => {
     if (data.user.type === 'anonymous') {
-      goto(`${base}/auth/login?redirectTo=${base}/new`);
+      goto(path(`/auth/login?redirectTo=/new`));
     } else {
-      goto(`${base}/new`);
+      goto(path('/new'));
     }
   };
 </script>
