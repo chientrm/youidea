@@ -1,3 +1,4 @@
+import { base } from '$app/paths';
 import { COOKIE_USER } from '$lib/constants/cookies';
 import { sign } from '$lib/helpers/crypt';
 import { hashPassword } from '$lib/helpers/password';
@@ -35,6 +36,6 @@ export const actions = {
       const message = e.message;
       return fail(400, { message });
     }
-    throw redirect(303, url.searchParams.get('redirectTo') ?? '/');
+    throw redirect(303, url.searchParams.get('redirectTo') ?? base);
   }
 } satisfies Actions;

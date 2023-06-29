@@ -1,5 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import { base } from '$app/paths';
   import { page } from '$app/stores';
   import { empty } from '$lib/constants/empty';
   import type { ActionData } from './$types';
@@ -28,6 +29,6 @@
   <div>
     <button>Log in</button>
     <span>or</span>
-    <a href={`register?redirectUri=${redirectTo}`}>Register</a>
+    <a href={`${base}/register?redirectUri=${redirectTo}`}>Register</a>
   </div>
 </form>
