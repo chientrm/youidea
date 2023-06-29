@@ -1,14 +1,14 @@
 import { COOKIE_USER } from '$lib/constants/cookies';
-import { sign, verify } from '$lib/helpers/crypt';
+import { sign } from '$lib/helpers/crypt';
 import { hashPassword } from '$lib/helpers/password';
 import { validate } from '$lib/helpers/validate';
-import { fail, type Actions } from '@sveltejs/kit';
+import { fail, redirect, type Actions } from '@sveltejs/kit';
 import { ref, string } from 'yup';
 
 export const actions = {
-  default: async ({ request, locals, cookies }) => {
+  default: async ({ request, locals, cookies, url }) => {
     try {
-      const { uid } = await verify<User>(cookies.get(COOKIE_USER)!),
+      const { uid } = locals.user,
         { email, password } = await validate(request, {
           email: string().label('Email').required().email(),
           password: string().label('Password').required(),
@@ -23,8 +23,11 @@ export const actions = {
         )
           .bind(email, passwordHash, uid)
           .run(),
-        jwt = await sign<User>({ type: 'email', uid, email });
-      cookies.set(COOKIE_USER, jwt);
+        jwt = await sign({ type: 'email', uid, email });
+      cookies.set(COOKIE_USER, jwt, { path: '/' });
+      if (url.searchParams.has('redirectTo')) {
+        throw redirect(303, url.searchParams.get('redirectTo')!);
+      }
     } catch (e: any) {
       if (
         e instanceof Error &&

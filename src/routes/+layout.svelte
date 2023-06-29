@@ -5,11 +5,13 @@
 </script>
 
 <header>
-  <h1><a href="./">YouIdea</a></h1>
+  <h1>YouIdea</h1>
   {#if data.user.type === 'anonymous'}
-    <a href="login">Login</a>
+    <a href="/auth/login">Login</a>
   {:else if data.user.type === 'email'}
-    <a href="logout">Logout</a>
+    <form method="POST">
+      <button>Logout</button>
+    </form>
   {/if}
 </header>
 <slot />

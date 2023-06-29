@@ -13,6 +13,7 @@ declare global {
     // interface Error {}
     interface Locals {
       D1: D1Database;
+      user: User;
     }
     // interface PageData {}
     interface Platform {

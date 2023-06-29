@@ -1,1 +1,1 @@
-<h2>Quickly note your ideas</h2>
+<h2>Quickly note and share your ideas</h2>
