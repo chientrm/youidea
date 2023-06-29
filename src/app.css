@@ -2,10 +2,14 @@
   color: red;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  gap: 16pt;
+  gap: 8pt;
 }
 
 form label,
@@ -13,7 +17,7 @@ div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 16pt;
+  gap: 8pt;
 }
 
 input,
@@ -26,14 +30,17 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 16pt;
+  gap: 8pt;
 }
 
 body {
-  padding: 16pt;
+  padding: 8pt;
 }
 
 a {
   text-decoration: none;
   color: blue;
+}
+a:hover {
+  text-decoration: underline;
 }

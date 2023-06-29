@@ -14,7 +14,6 @@ export const handle = (async ({ event, resolve }) => {
       { uid } = dbUser,
       user = { type: 'anonymous', uid },
       jwt = await sign(user);
-    console.log({ dbUser, uid, user, jwt });
     event.cookies.set(COOKIE_USER, jwt);
   }
   return await resolve(event);

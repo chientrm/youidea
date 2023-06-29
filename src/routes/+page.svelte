@@ -1,1 +1,1 @@
-<a href="login"><h2>Login</h2></a>
+<h2>Quickly note your ideas</h2>

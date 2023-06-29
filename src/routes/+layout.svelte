@@ -5,7 +5,7 @@
 </script>
 
 <header>
-  <h1><a href="./">YouIdea</a> Quickly note your ideas</h1>
+  <h1><a href="./">YouIdea</a></h1>
   {#if data.user.type === 'anonymous'}
     <a href="login">Login</a>
   {:else if data.user.type === 'email'}
