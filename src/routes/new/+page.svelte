@@ -1,1 +1,1 @@
-<h1>New idea here</h1>
+<h1>New idea now</h1>
