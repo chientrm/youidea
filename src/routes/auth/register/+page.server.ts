@@ -11,7 +11,7 @@ export const actions = {
       const { uid } = locals.user,
         { email, password } = await validate(request, {
           email: string().label('Email').required().email(),
-          password: string().label('Password').required(),
+          password: string().label('Password').required().min(6),
           confirmPassword: string().oneOf(
             [ref('password')],
             'Password mismatch!'
@@ -25,9 +25,6 @@ export const actions = {
           .run(),
         jwt = await sign({ type: 'email', uid, email });
       cookies.set(COOKIE_USER, jwt, { path: '/' });
-      if (url.searchParams.has('redirectTo')) {
-        throw redirect(303, url.searchParams.get('redirectTo')!);
-      }
     } catch (e: any) {
       if (
         e instanceof Error &&
@@ -38,5 +35,6 @@ export const actions = {
       const message = e.message;
       return fail(400, { message });
     }
+    throw redirect(303, url.searchParams.get('redirectTo') ?? '/');
   }
 } satisfies Actions;

@@ -24,12 +24,10 @@ export const actions = {
         user: User = { type: 'email', uid, email },
         jwt = await sign(user);
       cookies.set(COOKIE_USER, jwt, { path: '/' });
-      if (url.searchParams.has('redirectTo')) {
-        throw redirect(303, url.searchParams.get('redirectTo')!);
-      }
     } catch (e: any) {
       const message = e.message;
       return fail(400, { message });
     }
+    throw redirect(303, url.searchParams.get('redirectTo') ?? '/');
   }
 } satisfies Actions;
