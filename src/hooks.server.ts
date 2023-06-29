@@ -13,6 +13,7 @@ export const handle = (async ({ event, resolve }) => {
       ).first<{ uid: number }>('uid'),
       user = { type: 'anonymous', uid },
       jwt = await sign(user);
+    console.log({ uid, user, jwt });
     event.cookies.set(COOKIE_USER, jwt);
   }
   return await resolve(event);
