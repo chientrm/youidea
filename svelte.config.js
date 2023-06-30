@@ -14,7 +14,6 @@ const config = {
 		adapter: adapter(),
 		paths: {
 			base: process.env.NODE_ENV === 'development' ? '' : '/youidea',
-			assets: "https://youidea.pages.dev/youidea"
 		}
 	}
 };
