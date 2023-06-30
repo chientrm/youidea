@@ -15,5 +15,4 @@
     </form>
   {/if}
 </header>
-{base}
 <slot />

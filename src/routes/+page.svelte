@@ -5,6 +5,7 @@
 
   export let data: PageData;
   const newIdea = () => {
+    console.log({ base });
     if (data.user.type === 'anonymous') {
       goto(`${base}/login?redirectTo=/new`);
     } else {
