@@ -25,7 +25,7 @@ export const actions = {
           .bind(email, passwordHash, uid)
           .run(),
         jwt = await sign({ type: 'email', uid, email });
-      cookies.set(COOKIE_USER, jwt, { path: '/' });
+      cookies.set(COOKIE_USER, jwt, { path: `${base}/` });
     } catch (e: any) {
       if (
         e instanceof Error &&

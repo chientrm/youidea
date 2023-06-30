@@ -24,7 +24,7 @@ export const actions = {
       const uid = dbUser.uid,
         user: User = { type: 'email', uid, email },
         jwt = await sign(user);
-      cookies.set(COOKIE_USER, jwt, { path: '/' });
+      cookies.set(COOKIE_USER, jwt, { path: `${base}/` });
     } catch (e: any) {
       const message = e.message;
       return fail(400, { message });

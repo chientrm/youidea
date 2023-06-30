@@ -10,7 +10,7 @@ export const actions = {
         'insert into User default values returning uid'
       ).first<{ uid: number }>(),
       jwt = await sign<User>({ type: 'anonymous', uid });
-    cookies.set(COOKIE_USER, jwt);
+    cookies.set(COOKIE_USER, jwt, {path: `${base}/`});
     throw redirect(303, `${base}/`);
   }
 } satisfies Actions;
