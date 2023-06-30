@@ -1,14 +1,14 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import { base } from '$app/paths';
   import { page } from '$app/stores';
   import { empty } from '$lib/constants/empty';
-  import { path } from '$lib/helpers/path';
   import type { ActionData } from './$types';
   export let form: ActionData;
   const redirectTo = $page.url.searchParams.get('redirectTo') ?? '';
 </script>
 
-<h2>Register</h2>
+<h2>Login</h2>
 
 <form method="POST" use:enhance>
   <p class="error">
@@ -26,13 +26,9 @@
     Password
     <input name="password" type="password" />
   </label>
-  <label>
-    Cofnirm Password
-    <input name="confirmPassword" type="password" />
-  </label>
   <div>
-    <button>Register</button>
+    <button>Log in</button>
     <span>or</span>
-    <a href={path(`/login?redirectUri=${redirectTo}`)}>Login</a>
+    <a href={`${base}/register?redirectUri=${redirectTo}`}>Register</a>
   </div>
 </form>

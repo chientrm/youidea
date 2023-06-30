@@ -1,7 +1,7 @@
+import { base } from '$app/paths';
 import { COOKIE_USER } from '$lib/constants/cookies';
 import { sign } from '$lib/helpers/crypt';
 import { validatePassword } from '$lib/helpers/password';
-import { path } from '$lib/helpers/path';
 import { validate } from '$lib/helpers/validate';
 import { fail, redirect, type Actions } from '@sveltejs/kit';
 import { string } from 'yup';
@@ -29,6 +29,6 @@ export const actions = {
       const message = e.message;
       return fail(400, { message });
     }
-    throw redirect(303, path(url.searchParams.get('redirectTo')));
+    throw redirect(303, `${base}${url.searchParams.get('redirectTo') ?? '/'}`);
   }
 } satisfies Actions;
