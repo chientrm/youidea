@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from '$app/paths';
-  import '../app.css';
+  import '$lib/app.css';
   import type { LayoutData } from './$types';
   export let data: LayoutData;
 </script>
