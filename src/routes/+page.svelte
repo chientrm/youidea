@@ -13,5 +13,5 @@
   };
 </script>
 
-<h2>Quickly note and share your ideas</h2>
+<h2>Share your ideas and get like!</h2>
 <button on:click={newIdea}> New idea! </button>
