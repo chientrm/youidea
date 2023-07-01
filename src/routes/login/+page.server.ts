@@ -5,6 +5,13 @@ import { validatePassword } from '$lib/helpers/password';
 import { validate } from '$lib/helpers/validate';
 import { fail, redirect, type Actions } from '@sveltejs/kit';
 import { string } from 'yup';
+import type { PageServerLoad } from '../$types';
+
+export const load = (({ locals, url }) => {
+  if (locals.user.type !== 'anonymous') {
+    throw redirect(303, `${base}${url.searchParams.get('redirectTo') ?? '/'}`);
+  }
+}) satisfies PageServerLoad;
 
 export const actions = {
   default: async ({ request, locals, cookies, url }) => {
