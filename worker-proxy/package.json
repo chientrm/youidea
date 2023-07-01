@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "deploy": "wrangler publish",
-    "start": "wrangler dev",
+    "start": "wrangler dev --remote",
     "db": "npx wrangler d1 execute D1 --local --file=./schema.sql"
   },
   "devDependencies": {
