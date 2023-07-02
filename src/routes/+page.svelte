@@ -9,7 +9,7 @@
 </script>
 
 <h2>{DESCRIPTION}</h2>
-<h2>Newest ideas</h2>
+<h3>Newest ideas</h3>
 <ul>
   {#each data.ideas as { id, email, to, title, loves, comments }}
     <li>

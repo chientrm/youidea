@@ -5,7 +5,7 @@
   export let form: ActionData;
 </script>
 
-<h1>New idea</h1>
+<h2>New idea</h2>
 
 <form method="POST" use:enhance>
   <Error message={form?.message} />

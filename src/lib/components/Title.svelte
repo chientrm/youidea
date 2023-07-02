@@ -1,12 +1,12 @@
 <script lang="ts">
 </script>
 
-<h1>
+<h2>
   <slot />
-</h1>
+</h2>
 
 <style>
-  h1 {
+  h2 {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
