@@ -13,3 +13,11 @@
 >
   New idea!
 </a>
+<h2>Top ideas</h2>
+<ul>
+  {#each data.ideas as { id, uid, description, createdAt }}
+    <li>
+      {description}
+    </li>
+  {/each}
+</ul>
