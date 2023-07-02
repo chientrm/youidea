@@ -10,7 +10,7 @@
 </script>
 
 <header>
-  <div class="row">
+  <div>
     <h1><a href={`${base}/`}>YouIdea</a></h1>
     <IconButton
       href={data.user.type === 'anonymous'
@@ -31,3 +31,12 @@
 </header>
 
 <slot />
+
+<style>
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 8pt;
+    align-items: center;
+  }
+</style>

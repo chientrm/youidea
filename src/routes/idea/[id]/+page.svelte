@@ -19,7 +19,7 @@
   </IconA>
   <Title>{data.description}</Title>
 </div>
-<span class="italic">by {data.email}</span>
+<span style="font-style: italic">by {data.email}</span>
 <span>{data.hour} • {data.date}</span>
 <p>{data.description}</p>
 <div>
