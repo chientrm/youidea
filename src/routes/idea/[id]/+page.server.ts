@@ -11,7 +11,7 @@ export const load = (async ({ params, locals, request }) => {
   const { id } = params,
     { uid } = locals.user,
     data = await locals.D1.prepare(
-      'select description, Idea.createdAt, email, Idea_Love.createdAt as loveCreatedAt from Idea, User left join Idea_Love on Idea_Love.ideaId = ?1 and Idea_Love.uid = ?2 where Idea.id=?1 and Idea.uid = User.uid'
+      'select description, Idea.createdAt, email, Idea_Love.createdAt as loveCreatedAt, loves from Idea, User left join Idea_Love on Idea_Love.ideaId = ?1 and Idea_Love.uid = ?2 where Idea.id=?1 and Idea.uid = User.uid'
     )
       .bind(id, uid)
       .first<{
@@ -19,6 +19,7 @@ export const load = (async ({ params, locals, request }) => {
         createdAt: Date;
         loveCreatedAt: Date;
         email: string;
+        loves: number;
       }>(),
     { isMobile, tz } = locals,
     hour = dayjs(data.createdAt).tz(tz, true).format('h:mm a'),

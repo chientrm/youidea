@@ -36,6 +36,7 @@
       </IconButton>
     </form>
   {/if}
+  <span>{data.loves}</span>
 </div>
 
 <style>
