@@ -22,7 +22,7 @@
     <input name="password" type="password" />
   </label>
   <label>
-    Cofnirm Password
+    Confirm Password
     <input name="confirmPassword" type="password" />
   </label>
   <div>

@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  padding: 8pt;
+  padding: 16pt;
 }
 
 form,
@@ -25,13 +25,25 @@ textarea {
 
 a {
   text-decoration: none;
-  color: blue;
-}
-
-a:hover {
-  text-decoration: underline;
+  color: #299ded;
 }
 
 form label input {
   flex-grow: 1;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
 }

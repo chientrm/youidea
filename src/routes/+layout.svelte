@@ -38,6 +38,14 @@
 
 <slot />
 
+{#if data.isMobile}
+  <style>
+    body {
+      padding: 8pt;
+    }
+  </style>
+{/if}
+
 <style>
   header {
     display: flex;

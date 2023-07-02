@@ -1,3 +1,1 @@
-const COOKIE_USER = 'user';
-
-export { COOKIE_USER };
+export const COOKIE_USER = 'user';
