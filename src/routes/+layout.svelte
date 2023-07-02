@@ -6,7 +6,6 @@
   import MdAdd from 'svelte-icons/md/MdAdd.svelte';
   import type { LayoutData } from './$types';
   export let data: LayoutData;
-  $: isMobile = data.isMobile;
 </script>
 
 <header>
@@ -31,6 +30,14 @@
 </header>
 
 <slot />
+
+{#if !data.isMobile}
+  <style>
+    form {
+      max-width: 250pt;
+    }
+  </style>
+{/if}
 
 <style>
   header {

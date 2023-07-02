@@ -34,3 +34,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+form label input {
+  flex-grow: 1;
+}
