@@ -5,22 +5,15 @@
 </script>
 
 <h2>Let somebody else make it happen!</h2>
-<a
-  href={data.user.type === 'anonymous'
-    ? `${base}/login?redirectTo=/new`
-    : `${base}/new`}
->
-  New idea!
-</a>
 <h2>Newest ideas</h2>
 <ul>
-  {#each data.ideas as { id, uid, email, to, description, createdAt }}
+  {#each data.ideas as { id, email, to, description }}
     <li>
       <span class="italic">
         {email} • {to}
       </span>
       <span>
-        {description}
+        <a href={`${base}/idea/${id}`}>{description}</a>
       </span>
     </li>
   {/each}
