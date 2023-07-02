@@ -22,8 +22,9 @@ export const load = (async ({ params, locals }) => {
         loves: number;
       }>(),
     { isMobile, tz } = locals,
-    hour = dayjs(data.createdAt).tz(tz, true).format('h:mm a'),
-    date = dayjs(data.createdAt).tz(tz, true).format('MMM DD YYYY');
+    hour = dayjs(data.createdAt).tz(tz).format('h:mm a'),
+    date = dayjs(data.createdAt).tz(tz).format('MMM DD YYYY');
+  console.log({ tz });
   return { ...data, id, hour, date, isMobile };
 }) satisfies PageServerLoad;
 
