@@ -1,14 +1,10 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import { DESCRIPTION } from '$lib/constants/string';
-  import type { PageData } from './$types';
   import MdFavoriteBorder from 'svelte-icons/md/MdFavoriteBorder.svelte';
+  import type { PageData } from './$types';
   export let data: PageData;
 </script>
-
-<svelte:head>
-  <description>{DESCRIPTION}</description>
-</svelte:head>
 
 <h2>{DESCRIPTION}</h2>
 <h2>Newest ideas</h2>

@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS User;
 CREATE TABLE User (
     uid integer PRIMARY KEY AUTOINCREMENT,
     email text UNIQUE,
@@ -6,7 +5,6 @@ CREATE TABLE User (
     createdAt datetime DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS Idea;
 CREATE TABLE Idea(
     id integer PRIMARY KEY AUTOINCREMENT,
     uid integer NOT NULL,
@@ -16,10 +14,17 @@ CREATE TABLE Idea(
     createdAt datetime DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS Idea_Love;
 CREATE TABLE Idea_Love(
     uid integer NOT NULL,
     ideaId integer NOT NULL,
     createdAt datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (uid, ideaId)
+);
+
+CREATE TABLE Idea_Comment(
+    id integer PRIMARY KEY AUTOINCREMENT,
+    uid integer NOT NULL,
+    ideaId integer NOT NULL,
+    content text NOT NULL,
+    createdAt datetime DEFAULT CURRENT_TIMESTAMP
 );

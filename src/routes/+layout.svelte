@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import '$lib/app.css';
   import IconButton from '$lib/components/IconA.svelte';
-  import { DESCRIPTION, TITLE } from '$lib/constants/string';
+  import { DESCRIPTION, TAGS, TITLE } from '$lib/constants/string';
   import 'modern-normalize/modern-normalize.css';
   import MdAdd from 'svelte-icons/md/MdAdd.svelte';
   import type { LayoutData } from './$types';
@@ -11,6 +11,8 @@
 
 <svelte:head>
   <title>{TITLE} - {DESCRIPTION}</title>
+  <meta name="description" content={DESCRIPTION} />
+  <meta name="keywords" content={TAGS.join(', ')} />
 </svelte:head>
 
 <header>
