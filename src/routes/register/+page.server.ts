@@ -36,6 +36,7 @@ export const actions = {
         jwt = await sign({ type: 'email', uid, email });
       cookies.set(COOKIE_USER, jwt, { path: `${base}/` });
     } catch (e: any) {
+      console.log(e.constructor.name);
       console.log(e.stack);
       if (
         e instanceof Error &&
