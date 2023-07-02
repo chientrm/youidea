@@ -1,11 +1,16 @@
 <script lang="ts">
   import { base } from '$app/paths';
+  import { DESCRIPTION } from '$lib/constants/string';
   import type { PageData } from './$types';
   import MdFavoriteBorder from 'svelte-icons/md/MdFavoriteBorder.svelte';
   export let data: PageData;
 </script>
 
-<h2>Let somebody else make it happen!</h2>
+<svelte:head>
+  <description>{DESCRIPTION}</description>
+</svelte:head>
+
+<h2>{DESCRIPTION}</h2>
 <h2>Newest ideas</h2>
 <ul>
   {#each data.ideas as { id, email, to, title, loves }}

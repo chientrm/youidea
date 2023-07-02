@@ -2,15 +2,20 @@
   import { base } from '$app/paths';
   import '$lib/app.css';
   import IconButton from '$lib/components/IconA.svelte';
+  import { DESCRIPTION, TITLE } from '$lib/constants/string';
   import 'modern-normalize/modern-normalize.css';
   import MdAdd from 'svelte-icons/md/MdAdd.svelte';
   import type { LayoutData } from './$types';
   export let data: LayoutData;
 </script>
 
+<svelte:head>
+  <title>{TITLE} - {DESCRIPTION}</title>
+</svelte:head>
+
 <header>
   <div>
-    <h1><a href={`${base}/`}>YouIdea</a></h1>
+    <h1><a href={`${base}/`}>{TITLE}</a></h1>
     <IconButton
       href={data.user.type === 'anonymous'
         ? `${base}/login?redirectTo=/new`
