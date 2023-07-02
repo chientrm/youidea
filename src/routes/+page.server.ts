@@ -7,13 +7,14 @@ import type { Actions, PageServerLoad } from './$types';
 
 export const load = (async ({ locals }) => {
   const result = await locals.D1.prepare(
-      'select Idea.id, email, title, Idea.createdAt, loves from Idea, User where Idea.uid = User.uid order by Idea.createdAt asc'
+      'select Idea.id, email, title, Idea.createdAt, loves, comments from Idea, User where Idea.uid = User.uid order by Idea.createdAt asc'
     ).all<{
       id: number;
       email: string;
       title: string;
       createdAt: Date;
       loves: number;
+      comments: number;
     }>(),
     ideas = (result.results ?? []).map((idea) => ({
       ...idea,

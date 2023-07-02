@@ -37,20 +37,21 @@
     <form method="POST" action="?/unlove" use:enhance>
       <IconButton>
         <MdFavorite slot="icon" />
+        {data.idea.loves}
       </IconButton>
     </form>
   {:else}
     <form method="POST" action="?/love" use:enhance>
       <IconButton>
         <MdFavoriteBorder slot="icon" />
+        {data.idea.loves}
       </IconButton>
     </form>
   {/if}
-  <span>{data.idea.loves}</span>
   <Icon>
     <MdComment slot="icon" />
+    {data.idea.comments}
   </Icon>
-  <span>{data.idea.comments}</span>
 </div>
 <ul>
   {#each data.comments as { email, content, to }}
@@ -83,7 +84,7 @@
   div {
     display: flex;
     flex-direction: row;
-    gap: 8pt;
+    gap: 16pt;
     align-items: center;
   }
   ul {
