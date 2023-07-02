@@ -68,15 +68,3 @@ li {
   gap: 8pt;
   align-items: center;
 }
-
-.row-close {
-  display: flex;
-  flex-direction: row;
-  gap: 4pt;
-  align-items: center;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
-}

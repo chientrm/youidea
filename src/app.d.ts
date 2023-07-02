@@ -14,6 +14,7 @@ declare global {
     interface Locals {
       D1: D1Database;
       user: User;
+      isMobile: boolean;
     }
     // interface PageData {}
     interface Platform {

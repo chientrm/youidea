@@ -1,7 +1,7 @@
-import type { PageServerLoad } from './$types';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+import type { PageServerLoad } from './$types';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -15,6 +15,7 @@ export const load = (async ({ params, locals, request }) => {
     // @ts-ignore
     tz = (request.cf?.timezone as string) ?? 'UTC',
     hour = dayjs(data.createdAt).tz(tz, true).format('h:mm a'),
-    date = dayjs(data.createdAt).tz(tz, true).format('MMM DD YYYY');
-  return { ...data, hour, date };
+    date = dayjs(data.createdAt).tz(tz, true).format('MMM DD YYYY'),
+    { isMobile } = locals;
+  return { ...data, hour, date, isMobile };
 }) satisfies PageServerLoad;

@@ -17,7 +17,11 @@ export const actions = {
     try {
       const { uid } = locals.user,
         { description } = await validate(request, {
-          description: string().label('Description').required().min(30)
+          description: string()
+            .label('Description')
+            .required()
+            .min(30)
+            .max(5000)
         }),
         idea = await locals.D1.prepare(
           'insert into Idea(uid, description) values(?1, ?2) returning id'

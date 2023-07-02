@@ -17,6 +17,7 @@
     "@sveltejs/adapter-cloudflare": "^2.3.0",
     "@sveltejs/kit": "^1.20.4",
     "@types/bcryptjs": "^2.4.2",
+    "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "bcryptjs": "^2.4.3",
@@ -26,6 +27,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte": "^2.30.0",
     "jose": "^4.14.4",
+    "modern-normalize": "^2.0.0",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.10.1",
     "svelte": "^4.0.0",
@@ -33,6 +35,7 @@
     "svelte-icons": "^2.1.0",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
+    "ua-parser-js": "^1.0.35",
     "vite": "^4.3.6",
     "yup": "^1.2.0"
   },

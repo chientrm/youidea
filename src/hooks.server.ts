@@ -3,11 +3,14 @@ import { COOKIE_USER } from '$lib/constants/cookies';
 import { sign, verify } from '$lib/helpers/crypt';
 import type { Handle } from '@sveltejs/kit';
 import { createD1 } from 'cf-workers-proxy';
+import parser from 'ua-parser-js';
 
 export const handle = (async ({ event, resolve }) => {
   if (!building) {
     event.locals.D1 = event.platform?.env.D1 ?? createD1('D1');
-    const cookie = event.cookies.get(COOKIE_USER);
+    const cookie = event.cookies.get(COOKIE_USER),
+      ua = parser(event.request.headers.get('user-agent') || '');
+    event.locals.isMobile = ua.device.type === 'mobile';
     if (cookie) {
       const user = await verify<User>(cookie);
       event.locals.user = user;

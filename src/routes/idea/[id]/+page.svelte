@@ -1,19 +1,20 @@
 <script lang="ts">
   import { base } from '$app/paths';
+  import IconButton from '$lib/components/IconButton.svelte';
+  import Title from '$lib/components/Title.svelte';
+  import MdArrowBack from 'svelte-icons/md/MdArrowBack.svelte';
   import type { PageData } from './$types';
   export let data: PageData;
-  import MdArrowBack from 'svelte-icons/md/MdArrowBack.svelte';
+  $: isMobile = data.isMobile;
 </script>
 
 <div class="row">
-  <a href={`${base}/`} class="row-close">
-    <div class="icon">
-      <MdArrowBack />
-    </div>
-    <span>Back</span>
-  </a>
-  <h1>{data.description}</h1>
+  <IconButton href={`${base}/`} {isMobile}>
+    <MdArrowBack slot="icon" />
+    Back
+  </IconButton>
+  <Title>{data.description}</Title>
 </div>
-<span>{data.email}</span>
+<span class="italic">{data.email}</span>
 <span>{data.hour} • {data.date}</span>
 <p>{data.description}</p>
