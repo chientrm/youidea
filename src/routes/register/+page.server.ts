@@ -36,13 +36,11 @@ export const actions = {
         jwt = await sign({ type: 'email', uid, email });
       cookies.set(COOKIE_USER, jwt, { path: `${base}/` });
     } catch (e: any) {
-      console.log(e.cause);
-      console.log(e.cause?.message);
-      console.log(e.constructor.name);
-      console.log(e.stack);
       if (
         e instanceof Error &&
-        e.message.includes('UNIQUE constraint failed')
+        (e.message.includes('UNIQUE constraint failed') ||
+          // @ts-ignore
+          e.cause?.message.includes('UNIQUE constraint failed'))
       ) {
         return fail(400, { message: 'Email is already existed!' });
       }
