@@ -1,9 +1,9 @@
 import { base } from '$app/paths';
-import { fail, redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-import type { Actions } from '../$types';
 import { validate } from '$lib/helpers/validate';
+import { fail, redirect } from '@sveltejs/kit';
 import { string } from 'yup';
+import type { Actions } from '../$types';
+import type { PageServerLoad } from './$types';
 
 export const load = (({ locals }) => {
   if (locals.user.type === 'anonymous') {
@@ -17,13 +17,8 @@ export const actions = {
     try {
       const { uid } = locals.user,
         { title, description } = await validate(request, {
-          title: string().label('Title').trim().required().min(6).max(100),
-          description: string()
-            .label('Description')
-            .trim()
-            .required()
-            .min(30)
-            .max(5000)
+          title: string().label('Title').trim().required().max(100),
+          description: string().label('Description').trim().required().max(5000)
         }),
         idea = await locals.D1.prepare(
           'insert into Idea(uid, title, description) values(?1, ?2, ?3) returning id'

@@ -77,7 +77,7 @@
 
 <form method="POST" action="?/comment" use:enhance>
   <Error message={form?.message} />
-  <textarea name="content" placeholder="Leave a comment" />
+  <textarea name="content" placeholder="Leave a comment" maxlength="5000" />
   <div>
     <button>Comment</button>
   </div>

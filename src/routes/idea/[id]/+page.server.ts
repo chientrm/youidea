@@ -77,7 +77,7 @@ export const actions = {
     }
     try {
       const { content } = await validate(request, {
-          content: string().required().trim().label('Comment').min(6).max(5000)
+          content: string().required().trim().label('Comment').max(5000)
         }),
         { meta } = await locals.D1.prepare(
           'insert into Idea_Comment(uid, ideaId, content) values(?1, ?2, ?3)'
