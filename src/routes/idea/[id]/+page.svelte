@@ -4,6 +4,7 @@
   import IconA from '$lib/components/IconA.svelte';
   import IconButton from '$lib/components/IconButton.svelte';
   import Title from '$lib/components/Title.svelte';
+  import { TITLE } from '$lib/constants/string';
   import MdArrowBack from 'svelte-icons/md/MdArrowBack.svelte';
   import MdFavorite from 'svelte-icons/md/MdFavorite.svelte';
   import MdFavoriteBorder from 'svelte-icons/md/MdFavoriteBorder.svelte';
@@ -11,6 +12,11 @@
   export let data: PageData;
   $: isMobile = data.isMobile;
 </script>
+
+<svelte:head>
+  <title>{data.title} on {TITLE}</title>
+  <description>{data.description}</description>
+</svelte:head>
 
 <div>
   <IconA href={`${base}/`}>
