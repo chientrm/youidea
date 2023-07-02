@@ -2,6 +2,8 @@ import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import type { Actions, PageServerLoad } from './$types';
+import { redirect } from '@sveltejs/kit';
+import { base } from '$app/paths';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -27,7 +29,10 @@ export const load = (async ({ params, locals, request }) => {
 export const actions = {
   love: async ({ params, locals }) => {
     const { id } = params,
-      { uid } = locals.user;
+      { uid, type } = locals.user;
+    if (type === 'anonymous') {
+      throw redirect(303, `${base}/login?redirectTo=/idea/${id}`);
+    }
     await locals.D1.prepare('insert into Idea_Love(uid, ideaId) values(?1, ?2)')
       .bind(uid, id)
       .run();
