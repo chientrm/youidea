@@ -12,7 +12,7 @@
   {#each data.ideas as { id, email, to, description }}
     <li>
       <span class="italic">
-        {email} • {to}
+        by {email} • {to}
       </span>
       <span>
         <a href={`${base}/idea/${id}`}>{description}</a>
@@ -20,3 +20,13 @@
     </li>
   {/each}
 </ul>
+
+<style>
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+</style>

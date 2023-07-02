@@ -15,6 +15,6 @@
   </IconButton>
   <Title>{data.description}</Title>
 </div>
-<span class="italic">{data.email}</span>
+<span class="italic">by {data.email}</span>
 <span>{data.hour} • {data.date}</span>
 <p>{data.description}</p>
