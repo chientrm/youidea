@@ -36,6 +36,7 @@ export const actions = {
         jwt = await sign({ type: 'email', uid, email });
       cookies.set(COOKIE_USER, jwt, { path: `${base}/` });
     } catch (e: any) {
+      console.log(e);
       if (
         e instanceof Error &&
         e.message.includes('UNIQUE constraint failed')
