@@ -5,7 +5,7 @@
   export let data: PageData;
 </script>
 
-<h2>Share your ideas and get like!</h2>
+<h2>Let somebody else make it happen!</h2>
 <a
   href={data.user.type === 'anonymous'
     ? `${base}/login?redirectTo=/new`
