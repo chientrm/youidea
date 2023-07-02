@@ -48,4 +48,9 @@
     gap: 32pt;
     list-style-type: none;
   }
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+  }
 </style>

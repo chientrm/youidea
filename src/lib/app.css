@@ -4,6 +4,7 @@
 
 body {
   font-family: sans-serif;
+  padding: 8pt;
 }
 
 form,
@@ -25,28 +26,11 @@ button {
   padding: 8pt;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8pt;
-}
-
-body {
-  padding: 8pt;
-}
-
 a {
   text-decoration: none;
   color: blue;
 }
+
 a:hover {
   text-decoration: underline;
-}
-
-li {
-  display: flex;
-  flex-direction: column;
-  gap: 8pt;
 }
