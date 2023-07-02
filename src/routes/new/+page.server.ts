@@ -16,7 +16,8 @@ export const actions = {
     let id: number;
     try {
       const { uid } = locals.user,
-        { description } = await validate(request, {
+        { title, description } = await validate(request, {
+          title: string().label('Title').required().min(6).max(100),
           description: string()
             .label('Description')
             .required()
@@ -24,9 +25,9 @@ export const actions = {
             .max(5000)
         }),
         idea = await locals.D1.prepare(
-          'insert into Idea(uid, description) values(?1, ?2) returning id'
+          'insert into Idea(uid, title, description) values(?1, ?2, ?3) returning id'
         )
-          .bind(uid, description)
+          .bind(uid, title, description)
           .first<{ id: number }>();
       id = idea.id;
     } catch (e: any) {

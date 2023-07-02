@@ -8,12 +8,12 @@
 <h2>Let somebody else make it happen!</h2>
 <h2>Newest ideas</h2>
 <ul>
-  {#each data.ideas as { id, email, to, description, loves }}
+  {#each data.ideas as { id, email, to, title, loves }}
     <li>
       <span style="font-style: italic">
         by {email} • {to}
       </span>
-      <a href={`${base}/idea/${id}`}>{description}</a>
+      <a href={`${base}/idea/${id}`}>{title}</a>
       <span>
         {loves}
         <div>

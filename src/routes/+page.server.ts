@@ -11,11 +11,11 @@ const _dayjs = dayjs();
 
 export const load = (async ({ locals }) => {
   const result = await locals.D1.prepare(
-      'select Idea.id, email, description, Idea.createdAt, loves from Idea, User where Idea.uid = User.uid order by Idea.createdAt desc'
+      'select Idea.id, email, title, Idea.createdAt, loves from Idea, User where Idea.uid = User.uid order by Idea.createdAt asc'
     ).all<{
       id: number;
       email: string;
-      description: string;
+      title: string;
       createdAt: Date;
       loves: number;
     }>(),

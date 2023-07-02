@@ -15,6 +15,8 @@
       {empty}
     {/if}
   </p>
+  <span>Title</span>
+  <input type="text" name="title" />
   <span>Description </span>
   <textarea name="description" rows="10" />
   <div>

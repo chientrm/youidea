@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS Idea;
 CREATE TABLE Idea(
     id integer PRIMARY KEY AUTOINCREMENT,
     uid integer NOT NULL,
+    title text NOT NULL,
     description text NOT NULL,
     loves integer DEFAULT 0,
     createdAt datetime DEFAULT CURRENT_TIMESTAMP

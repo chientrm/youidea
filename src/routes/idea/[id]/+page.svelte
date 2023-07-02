@@ -17,7 +17,7 @@
     <MdArrowBack slot="icon" />
     {isMobile ? '' : 'Back'}
   </IconA>
-  <Title>{data.description}</Title>
+  <Title>{data.title}</Title>
 </div>
 <span style="font-style: italic">by {data.email}</span>
 <span>{data.hour} • {data.date}</span>
