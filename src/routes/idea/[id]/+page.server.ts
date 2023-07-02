@@ -1,13 +1,13 @@
+import { base } from '$app/paths';
+import { redirect } from '@sveltejs/kit';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import type { Actions, PageServerLoad } from './$types';
-import { redirect } from '@sveltejs/kit';
-import { base } from '$app/paths';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-export const load = (async ({ params, locals, request }) => {
+export const load = (async ({ params, locals }) => {
   const { id } = params,
     { uid } = locals.user,
     data = await locals.D1.prepare(
