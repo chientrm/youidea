@@ -1,25 +1,19 @@
-<script lang="ts">
-  export let href: string;
-</script>
-
-<a {href}>
+<button>
   <div>
     <slot name="icon" />
   </div>
-  <span>
-    <slot />
-  </span>
-</a>
+  <slot />
+</button>
 
 <style>
-  a {
+  button {
     display: flex;
     flex-direction: row;
     gap: 4pt;
     align-items: center;
   }
-  a div {
-    width: 32px;
-    height: 32px;
+  button div {
+    width: 16pt;
+    height: 16pt;
   }
 </style>

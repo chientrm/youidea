@@ -15,6 +15,7 @@ declare global {
       D1: D1Database;
       user: User;
       isMobile: boolean;
+      tz: string;
     }
     // interface PageData {}
     interface Platform {

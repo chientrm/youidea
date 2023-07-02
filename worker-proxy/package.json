@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "deploy": "wrangler publish",
-    "start": "wrangler dev --remote",
-    "db": "npx wrangler d1 execute D1 --local --file=./schema.sql"
+    "start": "wrangler dev --remote"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230419.0",

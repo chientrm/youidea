@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import '$lib/app.css';
-  import IconButton from '$lib/components/IconButton.svelte';
+  import IconButton from '$lib/components/IconA.svelte';
   import 'modern-normalize/modern-normalize.css';
   import MdAdd from 'svelte-icons/md/MdAdd.svelte';
   import type { LayoutData } from './$types';

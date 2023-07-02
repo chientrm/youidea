@@ -11,6 +11,8 @@ export const handle = (async ({ event, resolve }) => {
     const cookie = event.cookies.get(COOKIE_USER),
       ua = parser(event.request.headers.get('user-agent') || '');
     event.locals.isMobile = ua.device.type === 'mobile';
+    // @ts-ignore
+    event.locals.tz = (event.request.cf?.timezone as string) ?? 'UTC';
     if (cookie) {
       const user = await verify<User>(cookie);
       event.locals.user = user;
