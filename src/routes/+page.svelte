@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: row;
     gap: 4pt;
+    align-items: center;
   }
   div {
     width: 16pt;
