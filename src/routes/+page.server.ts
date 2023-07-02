@@ -2,13 +2,26 @@ import { base } from '$app/paths';
 import { COOKIE_USER } from '$lib/constants/cookies';
 import { sign } from '$lib/helpers/crypt';
 import { redirect } from '@sveltejs/kit';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import type { Actions, PageServerLoad } from './$types';
+dayjs.extend(relativeTime);
+
+const _dayjs = dayjs();
 
 export const load = (async ({ locals }) => {
   const result = await locals.D1.prepare(
-    'select id, uid, description, createdAt from Idea order by createdAt desc'
-  ).all<{ id: number; uid: number; description: string; createdAt: Date }>();
-  const ideas = result.results ?? [];
+      'select Idea.id, email, description, Idea.createdAt from Idea, User where Idea.uid = User.uid order by Idea.createdAt desc'
+    ).all<{
+      id: number;
+      email: string;
+      description: string;
+      createdAt: Date;
+    }>(),
+    ideas = (result.results ?? []).map((idea) => ({
+      ...idea,
+      to: _dayjs.to(idea.createdAt)
+    }));
   return { ideas };
 }) satisfies PageServerLoad;
 

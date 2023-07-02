@@ -1,7 +1,6 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import type { PageData } from './$types';
-
   export let data: PageData;
 </script>
 
@@ -13,11 +12,16 @@
 >
   New idea!
 </a>
-<h2>Top ideas</h2>
+<h2>Newest ideas</h2>
 <ul>
-  {#each data.ideas as { id, uid, description, createdAt }}
+  {#each data.ideas as { id, uid, email, to, description, createdAt }}
     <li>
-      {description}
+      <span class="italic">
+        {email} • {to}
+      </span>
+      <span>
+        {description}
+      </span>
     </li>
   {/each}
 </ul>
