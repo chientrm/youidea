@@ -11,6 +11,7 @@ CREATE TABLE Idea(
     title text NOT NULL,
     description text NOT NULL,
     loves integer DEFAULT 0,
+    comments integer DEFAULT 0,
     createdAt datetime DEFAULT CURRENT_TIMESTAMP
 );
 

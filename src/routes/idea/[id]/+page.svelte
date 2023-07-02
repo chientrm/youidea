@@ -4,12 +4,16 @@
   import IconA from '$lib/components/IconA.svelte';
   import IconButton from '$lib/components/IconButton.svelte';
   import Title from '$lib/components/Title.svelte';
+  import { empty } from '$lib/constants/empty';
+  import MdComment from 'svelte-icons/md/MdComment.svelte';
+  import { TITLE } from '$lib/constants/string';
   import MdArrowBack from 'svelte-icons/md/MdArrowBack.svelte';
   import MdFavorite from 'svelte-icons/md/MdFavorite.svelte';
   import MdFavoriteBorder from 'svelte-icons/md/MdFavoriteBorder.svelte';
-  import type { PageData } from './$types';
-  import { TITLE } from '$lib/constants/string';
+  import type { ActionData, PageData } from './$types';
+  import Icon from '$lib/components/Icon.svelte';
   export let data: PageData;
+  export let form: ActionData;
 </script>
 
 <svelte:head>
@@ -43,18 +47,33 @@
     </form>
   {/if}
   <span>{data.idea.loves}</span>
+  <Icon>
+    <MdComment slot="icon" />
+  </Icon>
+  <span>{data.idea.comments}</span>
 </div>
-
 <ul>
-  {#each data.comments as { content }}
+  {#each data.comments as { email, content, to }}
     <li>
-      <span>{content}</span>
+      <span style="font-style: italic">
+        by {email} • {to}
+      </span>
+      <span>
+        {content}
+      </span>
     </li>
   {/each}
 </ul>
 
 <form method="POST" action="?/comment" use:enhance>
-  <textarea name="comment" />
+  <p class="error">
+    {#if form?.message}
+      {form.message}
+    {:else}
+      {empty}
+    {/if}
+  </p>
+  <textarea name="content" />
   <div>
     <button>Comment</button>
   </div>
@@ -66,5 +85,16 @@
     flex-direction: row;
     gap: 8pt;
     align-items: center;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32pt;
+    list-style-type: none;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
   }
 </style>

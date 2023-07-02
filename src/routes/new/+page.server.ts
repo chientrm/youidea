@@ -17,9 +17,10 @@ export const actions = {
     try {
       const { uid } = locals.user,
         { title, description } = await validate(request, {
-          title: string().label('Title').required().min(6).max(100),
+          title: string().label('Title').trim().required().min(6).max(100),
           description: string()
             .label('Description')
+            .trim()
             .required()
             .min(30)
             .max(5000)

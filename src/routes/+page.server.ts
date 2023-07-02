@@ -1,13 +1,9 @@
 import { base } from '$app/paths';
 import { COOKIE_USER } from '$lib/constants/cookies';
 import { sign } from '$lib/helpers/crypt';
+import { toNow } from '$lib/helpers/day';
 import { redirect } from '@sveltejs/kit';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import type { Actions, PageServerLoad } from './$types';
-dayjs.extend(relativeTime);
-
-const _dayjs = dayjs();
 
 export const load = (async ({ locals }) => {
   const result = await locals.D1.prepare(
@@ -21,7 +17,7 @@ export const load = (async ({ locals }) => {
     }>(),
     ideas = (result.results ?? []).map((idea) => ({
       ...idea,
-      to: _dayjs.to(idea.createdAt)
+      to: toNow(idea.createdAt)
     }));
   return { ideas };
 }) satisfies PageServerLoad;

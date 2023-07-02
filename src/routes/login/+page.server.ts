@@ -17,7 +17,7 @@ export const actions = {
   default: async ({ request, locals, cookies, url }) => {
     try {
       const { email, password } = await validate(request, {
-          email: string().label('Email').required().email(),
+          email: string().trim().label('Email').required().email(),
           password: string().label('Password').required()
         }),
         dbUser = await locals.D1.prepare(

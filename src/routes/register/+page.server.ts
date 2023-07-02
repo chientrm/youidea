@@ -18,7 +18,7 @@ export const actions = {
     try {
       const { uid } = locals.user,
         { email, password } = await validate(request, {
-          email: string().label('Email').required().email(),
+          email: string().trim().label('Email').required().email(),
           password: string().label('Password').required().min(6),
           confirmPassword: string().oneOf(
             [ref('password')],
