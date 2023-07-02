@@ -13,8 +13,8 @@
 <ul>
   {#each data.ideas as { id, email, to, title, loves, comments }}
     <li>
-      <span style="font-style: italic">
-        by {email} • {to}
+      <span>
+        by <span style="font-style: italic">{email}</span> • {to}
       </span>
       <a href={`${base}/idea/${id}`}>{title}</a>
       <div>

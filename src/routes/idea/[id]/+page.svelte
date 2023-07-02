@@ -1,17 +1,17 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import { base } from '$app/paths';
+  import Icon from '$lib/components/Icon.svelte';
   import IconA from '$lib/components/IconA.svelte';
   import IconButton from '$lib/components/IconButton.svelte';
   import Title from '$lib/components/Title.svelte';
   import { empty } from '$lib/constants/empty';
-  import MdComment from 'svelte-icons/md/MdComment.svelte';
   import { TITLE } from '$lib/constants/string';
   import MdArrowBack from 'svelte-icons/md/MdArrowBack.svelte';
+  import MdComment from 'svelte-icons/md/MdComment.svelte';
   import MdFavorite from 'svelte-icons/md/MdFavorite.svelte';
   import MdFavoriteBorder from 'svelte-icons/md/MdFavoriteBorder.svelte';
   import type { ActionData, PageData } from './$types';
-  import Icon from '$lib/components/Icon.svelte';
   export let data: PageData;
   export let form: ActionData;
 </script>
@@ -29,7 +29,12 @@
   </IconA>
   <Title>{data.idea.title}</Title>
 </div>
-<span style="font-style: italic">by {data.idea.email}</span>
+<span>
+  by
+  <span style="font-style: italic">
+    {data.idea.email}
+  </span>
+</span>
 <span>{data.hour} • {data.date}</span>
 <p>{data.idea.description}</p>
 <div>
@@ -56,8 +61,12 @@
 <ul>
   {#each data.comments as { email, content, to }}
     <li>
-      <span style="font-style: italic">
-        by {email} • {to}
+      <span>
+        by
+        <span style="font-style: italic">
+          {email}
+        </span>
+        • {to}
       </span>
       <span>
         {content}
