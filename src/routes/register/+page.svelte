@@ -2,22 +2,17 @@
   import { enhance } from '$app/forms';
   import { base } from '$app/paths';
   import { page } from '$app/stores';
-  import { empty } from '$lib/constants/empty';
-  import type { ActionData } from './$types';
+  import Error from '$lib/components/Error.svelte';
+  import type { ActionData, PageData } from './$types';
   export let form: ActionData;
+  export let data: PageData;
   const redirectTo = $page.url.searchParams.get('redirectTo') ?? '';
 </script>
 
 <h2>Register</h2>
 
 <form method="POST" use:enhance>
-  <p class="error">
-    {#if form?.message}
-      {form.message}
-    {:else}
-      {empty}
-    {/if}
-  </p>
+  <Error message={form?.message} />
   <label>
     Email
     <input name="email" type="email" />
@@ -36,3 +31,11 @@
     <a href={`${base}/login?redirectUri=${redirectTo}`}>Login</a>
   </div>
 </form>
+
+{#if !data.isMobile}
+  <style>
+    form {
+      max-width: 250pt;
+    }
+  </style>
+{/if}

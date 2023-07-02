@@ -11,6 +11,8 @@ export const load = (({ locals, url }) => {
   if (locals.user.type !== 'anonymous') {
     throw redirect(303, `${base}${url.searchParams.get('redirectTo') ?? '/'}`);
   }
+  const { isMobile } = locals;
+  return { isMobile };
 }) satisfies PageServerLoad;
 
 export const actions = {

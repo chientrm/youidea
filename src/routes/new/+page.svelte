@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
-  import { empty } from '$lib/constants/empty';
+  import Error from '$lib/components/Error.svelte';
   import type { ActionData } from './$types';
   export let form: ActionData;
 </script>
@@ -8,17 +8,14 @@
 <h1>New idea</h1>
 
 <form method="POST" use:enhance>
-  <p class="error">
-    {#if form?.message}
-      {form.message}
-    {:else}
-      {empty}
-    {/if}
-  </p>
-  <span>Title</span>
-  <input type="text" name="title" />
-  <span>Description </span>
-  <textarea name="description" rows="10" />
+  <Error message={form?.message} />
+  <input type="text" name="title" placeholder="Title" maxlength="100" />
+  <textarea
+    name="description"
+    rows="10"
+    placeholder="Description"
+    maxlength="5000"
+  />
   <div>
     <button>Post</button>
   </div>

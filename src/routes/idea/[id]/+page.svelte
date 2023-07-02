@@ -1,11 +1,11 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import { base } from '$app/paths';
+  import Error from '$lib/components/Error.svelte';
   import Icon from '$lib/components/Icon.svelte';
   import IconA from '$lib/components/IconA.svelte';
   import IconButton from '$lib/components/IconButton.svelte';
   import Title from '$lib/components/Title.svelte';
-  import { empty } from '$lib/constants/empty';
   import { TITLE } from '$lib/constants/string';
   import MdArrowBack from 'svelte-icons/md/MdArrowBack.svelte';
   import MdComment from 'svelte-icons/md/MdComment.svelte';
@@ -76,14 +76,8 @@
 </ul>
 
 <form method="POST" action="?/comment" use:enhance>
-  <p class="error">
-    {#if form?.message}
-      {form.message}
-    {:else}
-      {empty}
-    {/if}
-  </p>
-  <textarea name="content" />
+  <Error message={form?.message} />
+  <textarea name="content" placeholder="Leave a comment" />
   <div>
     <button>Comment</button>
   </div>

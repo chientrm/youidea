@@ -38,14 +38,6 @@
 
 <slot />
 
-{#if !data.isMobile}
-  <style>
-    form {
-      max-width: 250pt;
-    }
-  </style>
-{/if}
-
 <style>
   header {
     display: flex;
