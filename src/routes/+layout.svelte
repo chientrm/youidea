@@ -16,7 +16,6 @@
       href={data.user.type === 'anonymous'
         ? `${base}/login?redirectTo=/new`
         : `${base}/new`}
-      {isMobile}
     >
       <MdAdd slot="icon" />
       New idea

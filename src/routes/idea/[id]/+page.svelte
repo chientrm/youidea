@@ -9,9 +9,9 @@
 </script>
 
 <div class="row">
-  <IconButton href={`${base}/`} {isMobile}>
+  <IconButton href={`${base}/`}>
     <MdArrowBack slot="icon" />
-    Back
+    {isMobile ? '' : 'Back'}
   </IconButton>
   <Title>{data.description}</Title>
 </div>

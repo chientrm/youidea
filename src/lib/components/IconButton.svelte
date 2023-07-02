@@ -1,17 +1,14 @@
 <script lang="ts">
   export let href: string;
-  export let isMobile = false;
 </script>
 
 <a {href}>
   <div>
     <slot name="icon" />
   </div>
-  {#if !isMobile}
-    <span>
-      <slot />
-    </span>
-  {/if}
+  <span>
+    <slot />
+  </span>
 </a>
 
 <style>

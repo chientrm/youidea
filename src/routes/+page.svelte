@@ -1,5 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
+  import IconButton from '$lib/components/IconButton.svelte';
+  import MdAdd from 'svelte-icons/md/MdAdd.svelte';
   import type { PageData } from './$types';
   export let data: PageData;
 </script>
