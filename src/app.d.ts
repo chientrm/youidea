@@ -1,4 +1,5 @@
 // See https://kit.svelte.dev/docs/types#app
+/// <reference types="@sveltejs/adapter-cloudflare" />
 
 import type { JWTPayload } from 'jose';
 
